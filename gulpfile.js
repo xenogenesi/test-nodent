@@ -84,7 +84,7 @@ gulp.task('js-main', function(cb) {
         ifElse(isProd, () => sourcemaps.init()),
         rollup({
             //treeshake: false,
-            //sourcemaps: true,
+            sourceMap: true,
             //external: ['vue'],
             plugins: [
                 vue({
@@ -103,7 +103,7 @@ gulp.task('js-main', function(cb) {
                     //externalHelpers: true,
                     exclude: 'node_modules/**'
                     }),*/
-                //nodent(/*{ sourcemap: true }*/),
+                nodent(/*{ sourcemap: true }*/),
             ]}, { format: 'iife' }),
         concat((isProd) ? 'main.min.js' : 'main.js'),
         //ifElse(isProd, () => stripDebug()),
